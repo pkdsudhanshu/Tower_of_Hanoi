@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+void hanoi(int n,char SOURCE, char HELPER, char DESTINATION){
+    if(n == 1){
+        cout<<SOURCE << " -> " << DESTINATION<<endl;
+        return;
+    }
+
+    hanoi(n-1,SOURCE,DESTINATION,HELPER);
+    cout<<SOURCE << " -> " << DESTINATION<<endl;
+    hanoi(n-1,HELPER,SOURCE,DESTINATION);
+}
+
+int main(){
+    int disks;
+    cout<<"enter the no of disks";
+    cin>>disks;
+    char Source,helper,desti;
+    Source = 'A'; 
+    helper = 'B';
+    desti = 'C';
+
+    hanoi(disks,Source,helper,desti);
+
+    return 0;
+}

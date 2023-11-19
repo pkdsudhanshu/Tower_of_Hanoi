@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class TowerOfHanoi {
+    public static void hanoi(int n, char source, char helper, char destination) {
+        if (n == 1) {
+            System.out.println(source + " -> " + destination);
+            return;
+        }
+
+        hanoi(n-1, source, destination, helper);
+        System.out.println(source + " -> " + destination);
+        hanoi(n-1, helper, source, destination);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of disks: ");
+        int disks = scanner.nextInt();
+        char source = 'A', helper = 'B', destination = 'C';
+
+        System.out.println("Tower of Hanoi Solution:");
+        hanoi(disks, source, helper, destination);
+    }
+}

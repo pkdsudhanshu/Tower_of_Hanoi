@@ -1,0 +1,16 @@
+function hanoi(n, source, helper, destination) {
+    if (n === 1) {
+        console.log(source + " -> " + destination);
+        return;
+    }
+
+    hanoi(n-1, source, destination, helper);
+    console.log(source + " -> " + destination);
+    hanoi(n-1, helper, source, destination);
+}
+
+const disks = parseInt(prompt("Enter the number of disks: "));
+const source = 'A', helper = 'B', destination = 'C';
+
+console.log("Tower of Hanoi Solution:");
+hanoi(disks, source, helper, destination);
